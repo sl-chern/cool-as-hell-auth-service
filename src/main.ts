@@ -33,7 +33,5 @@ async function bootstrap() {
   );
 
   await app.listen(configService.getOrThrow("app.port", { infer: true }));
-
-  await app.listen(process.env.PORT ?? 3000);
 }
 bootstrap();

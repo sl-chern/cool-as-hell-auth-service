@@ -1,6 +1,6 @@
 import { registerAs } from "@nestjs/config";
 import { AppConfig } from "src/config/app-config.type";
-import { environmentVariablesSchema } from "./app-config.schema";
+import { environmentVariablesSchema } from "src/config/app-config.schema";
 
 export default registerAs<AppConfig>("app", () => {
   environmentVariablesSchema.parse(process.env);
