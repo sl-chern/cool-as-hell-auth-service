@@ -28,8 +28,6 @@ export class JwtStrategy extends PassportStrategy(Strategy, "jwt") {
     if (authHeader?.startsWith("Bearer ")) {
       const tokenFromHeader = authHeader.split(" ")[1];
       const cachedValue = await this.cacheService.get(tokenFromHeader);
-      console.log(cachedValue);
-
       if (cachedValue !== null) throw new UnauthorizedException();
     } else {
       throw new UnauthorizedException();
