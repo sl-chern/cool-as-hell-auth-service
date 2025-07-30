@@ -12,6 +12,7 @@ import { LoginDto } from "src/auth/dto/login.dto";
 import * as bcrypt from "bcryptjs";
 import { User } from "src/user/domain/user";
 import { CreateUserDto } from "src/user/dto/create-user.dto";
+import { CacheService } from "src/cache/cache.service";
 
 @Injectable()
 export class AuthService {
@@ -19,6 +20,7 @@ export class AuthService {
     private jwtService: JwtService,
     private userService: UserService,
     private configService: ConfigService<AllConfigType>,
+    private cacheService: CacheService,
   ) {}
 
   async validateLogin(loginDto: LoginDto): Promise<LoginResponseDto> {
@@ -63,7 +65,10 @@ export class AuthService {
   }
 
   async logout(token: string) {
-    return Promise.resolve(() => console.log(token));
+    const tokenExpiresIn = this.configService.getOrThrow("auth.expires", {
+      infer: true,
+    });
+    await this.cacheService.set(token, "", tokenExpiresIn);
   }
 
   async verify(id: User["id"]) {

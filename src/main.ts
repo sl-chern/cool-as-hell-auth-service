@@ -1,11 +1,11 @@
 import { ConfigService } from "@nestjs/config";
 import { NestFactory } from "@nestjs/core";
 import { AppModule } from "src/app.module";
-import { ZodFilter } from "src/filters/zod.filter";
-import { AllConfigType } from "./config/config.type";
+import { ZodFilter } from "src/utils/filters/zod.filter";
+import { AllConfigType } from "src/config/config.type";
 import { VersioningType } from "@nestjs/common";
 import * as bodyParser from "body-parser";
-import { ExcludeInterceptor } from "./interceptors/exclude.interceptor";
+import { ExcludeInterceptor } from "src/utils/interceptors/exclude.interceptor";
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);

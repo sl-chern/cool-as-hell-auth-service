@@ -4,9 +4,9 @@ import { Request } from "express";
 export const JwtToken = createParamDecorator(
   (data: unknown, ctx: ExecutionContext): string | null => {
     const request = ctx.switchToHttp().getRequest<Request>();
-    const authHeader = request.headers["Authorization"] || "";
+    const authHeader = request.headers["authorization"];
 
-    if (typeof authHeader === "string" && authHeader.startsWith("Bearer ")) {
+    if (authHeader && authHeader.startsWith("Bearer ")) {
       return authHeader.split(" ")[1];
     }
 
