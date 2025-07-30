@@ -8,6 +8,20 @@
       "when": 1753809949401,
       "tag": "0000_blue_killer_shrike",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1753868965150,
+      "tag": "0001_smart_jigsaw",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1753871795532,
+      "tag": "0002_lush_black_tarantula",
+      "breakpoints": true
     }
   ]
 }

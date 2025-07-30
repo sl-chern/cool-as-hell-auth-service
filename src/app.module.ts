@@ -2,6 +2,8 @@ import { Module } from "@nestjs/common";
 import { ConfigModule } from "@nestjs/config";
 import appConfig from "src/config/app.config";
 import { DrizzleModule } from "src/drizzle/drizzle.module";
+import { AuthModule } from "./auth/auth.module";
+import { UserModule } from "./user/user.module";
 
 @Module({
   imports: [
@@ -11,6 +13,8 @@ import { DrizzleModule } from "src/drizzle/drizzle.module";
       load: [appConfig],
       envFilePath: [".env"],
     }),
+    AuthModule,
+    UserModule,
   ],
   controllers: [],
   providers: [],
