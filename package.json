@@ -29,6 +29,7 @@
     "@nestjs/passport": "^11.0.5",
     "@nestjs/platform-express": "^11.0.1",
     "bcryptjs": "^3.0.2",
+    "class-transformer": "^0.5.1",
     "drizzle-kit": "^0.31.4",
     "drizzle-orm": "^0.44.4",
     "passport": "^0.7.0",

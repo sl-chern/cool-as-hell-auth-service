@@ -5,10 +5,12 @@ import { ZodFilter } from "src/filters/zod.filter";
 import { AllConfigType } from "./config/config.type";
 import { VersioningType } from "@nestjs/common";
 import * as bodyParser from "body-parser";
+import { ExcludeInterceptor } from "./interceptors/exclude.interceptor";
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.useGlobalFilters(new ZodFilter());
+  app.useGlobalInterceptors(new ExcludeInterceptor());
 
   const configService = app.get(ConfigService<AllConfigType>);
 

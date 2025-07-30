@@ -7,6 +7,6 @@ export default registerAs<AuthConfig>("auth", () => {
 
   return {
     secret: process.env.SECRET || "secret",
-    expires: parseInt(process.env.EXPIRES!, 10) || 1000 * 60 * 60,
+    expires: parseInt(process.env.EXPIRES!, 10) || 60 * 60,
   };
 });
