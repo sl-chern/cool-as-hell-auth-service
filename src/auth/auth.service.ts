@@ -9,7 +9,7 @@ import { AllConfigType } from "src/config/config.type";
 import { UserService } from "src/user/user.service";
 import { LoginResponseDto } from "src/auth/dto/login-response.dto";
 import { LoginDto } from "src/auth/dto/login.dto";
-import bcrypt from "bcryptjs";
+import * as bcrypt from "bcryptjs";
 import { User } from "src/user/domain/user";
 import { CreateUserDto } from "src/user/dto/create-user.dto";
 

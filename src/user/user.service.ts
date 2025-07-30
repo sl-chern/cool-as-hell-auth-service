@@ -5,7 +5,7 @@ import {
 } from "@nestjs/common";
 import { User } from "src/user/domain/user";
 import { CreateUserDto } from "src/user/dto/create-user.dto";
-import bcrypt from "bcryptjs";
+import * as bcrypt from "bcryptjs";
 import { AbstractUserRepository } from "src/user/infrastructure/persistance/user.repository";
 import { NullableType } from "src/utils/types";
 

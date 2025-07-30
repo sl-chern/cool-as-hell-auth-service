@@ -1,9 +1,9 @@
 import { Module } from "@nestjs/common";
 import { UserService } from "src/user/user.service";
-import { UserRepository } from "./infrastructure/persistance/repository/user.repository";
+import { UserPersistenceModule } from "src/user/infrastructure/persistance/persistence.module";
 
 @Module({
-  imports: [UserRepository],
+  imports: [UserPersistenceModule],
   providers: [UserService],
   exports: [UserService],
 })

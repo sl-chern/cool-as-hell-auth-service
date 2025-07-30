@@ -6,6 +6,6 @@ import { AbstractUserRepository } from "./user.repository";
 @Module({
   imports: [DrizzleModule],
   providers: [{ provide: AbstractUserRepository, useClass: UserRepository }],
-  exports: [UserRepository],
+  exports: [AbstractUserRepository],
 })
-export class RelationalUserPersistenceModule {}
+export class UserPersistenceModule {}

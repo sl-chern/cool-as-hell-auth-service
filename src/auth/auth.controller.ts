@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Get,
   HttpCode,
   HttpStatus,
   Post,
@@ -15,6 +16,8 @@ import { CreateUserDto } from "src/user/dto/create-user.dto";
 import { createUserSchema } from "src/user/schemas/create-user.schema";
 import { AuthGuard } from "@nestjs/passport";
 import { JwtToken } from "./decorators/jwt-token.decorator";
+import { JwtPayload } from "./decorators/jwt-payload.decorator";
+import { JwtPayloadType } from "./strategies/types/jwt-payload";
 
 @Controller("auth")
 export class AuthController {
@@ -41,5 +44,12 @@ export class AuthController {
   @HttpCode(HttpStatus.NO_CONTENT)
   public async logout(@JwtToken() token: string): Promise<void> {
     await this.service.logout(token);
+  }
+
+  @Get("verify")
+  @UseGuards(AuthGuard("jwt"))
+  @HttpCode(HttpStatus.OK)
+  public async verify(@JwtPayload() jwtPayload: JwtPayloadType) {
+    return await this.service.verify(jwtPayload.id);
   }
 }
